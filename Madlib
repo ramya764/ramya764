@@ -1,24 +1,50 @@
-def madlib():
+
+def mad_libs():
+    # Mad Libs Game template
+    mad_libs_template = (
+        "One {} day, I decided to visit the {}. "
+        "As soon as I arrived, I noticed a {} right in the middle of the {}. "
+        "It was so {} that I couldn't resist taking a selfie with it.\n\n"
+        
+        "While exploring, I encountered a {} {} wearing a {} hat. "
+        "It seemed to be in a hurry, perhaps late for a {}. "
+        "I followed it and ended up at a {} {} {}.\n\n"
+        
+        "Inside, I met a {} who was busy {}. "
+        "They kindly offered me a cup of {}, and we chatted about {}. "
+        "It was a {} conversation that I'll never forget.\n\n"
+        
+        "After saying goodbye, I left the {} with a {} heart, grateful for such a {} adventure."
+    )
+
+    # User input for filling in the blanks
+    adjective1 = input("Enter an adjective: ")
+    place = input("Enter a place: ")
+    noun = input("Enter a noun: ")
+    adjective2 = input("Enter another adjective: ")
+    animal = input("Enter an animal: ")
+    color = input("Enter a color: ")
+    event = input("Enter an event: ")
+    adjective3 = input("Enter yet another adjective: ")
+    location = input("Enter a location: ")
+    occupation = input("Enter an occupation: ")
+    verb_ing = input("Enter a verb ending in -ing: ")
+    beverage = input("Enter a beverage: ")
+    plural_noun = input("Enter a plural noun: ")
+    adjective4 = input("Enter a final adjective: ")
+    emotion = input("Enter an emotion: ")
+
+    # mad_libs_template.format() used to replace the placeholder with ordered inputs. 
+    mad_libs_story = mad_libs_template.format(
+        adjective1, place, noun, adjective2, place, 
+        adjective3, animal, color, event, 
+        adjective4, adjective2, location, 
+        occupation, verb_ing, beverage, plural_noun, 
+        adjective4, place, emotion, adjective1
+    )
+
     
+    print(mad_libs_story)
 
-    time_of_day = input("Time of the day: ")
-    body_part_plural = input("Body Part (plural) :")
-    color = input("color: ")
-    verb_past_tense = input("verb (past tense): ")
-    food = input("food: ")
-    noun1 = input("noun: ")
-    noun_plural_1 = input("Noun (plural): ")
-    adj1 = input("Adjective: ")
-    adj2 = input("Adjective: ")
-    adj3 = input("Adjective: ")
-
-    madlib = f"It was a {adj1} summer {time_of_day} when we realized that the vacinne to stop \
-spread of the disease did not work. Instead, it produced ZOMBIES!!!, They were thirsty for {body_part_plural} \
-and the streets were lined with these monsters holding {noun_plural_1} in their hands.\
-Their eyes were {color} with hunger as they {verb_past_tense} around the city looking for {food}. \
-They were {adj2} and {adj3}, unknowing how to act in this human world... expect eat {body_part_plural}!!! \
-That was thier sole mission and they were dedicated towards achieving it for the sake of {noun1}."
-    
-    print(madlib)
-
-madlib()
+# Calling mad_libs() function
+mad_libs()
