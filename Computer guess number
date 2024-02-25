@@ -1,16 +1,25 @@
-### Hi there 👋
+import random
+from colorama import Fore
 
-<!--
-**ramya764/ramya764** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# generating magic number
+magic_number = 35
+chances = 5
 
-Here are some ideas to get you started:
+while chances > 0:
+    computer_guess = random.randint(1,100)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+    print(Fore.RED, f"Computer's guess: {computer_guess}")
+
+    if computer_guess > magic_number:
+        print(Fore.BLUE, "The computer's guess is too high.")
+    elif computer_guess < magic_number:
+        print(Fore.BLUE, "The computer's guess is too low.")
+    else:
+        print(Fore.MAGENTA, f"The computer guessed the magic number {magic_number} correctly. Congratulations!")
+        break
+
+    chances -= 1
+
+    print(Fore.RED, f"You have {chances} guesses left.\n")
+if computer_guess != magic_number:
+    print(Fore.LIGHTRED_EX, "The computer couldn't guess the magic number. You won!")
