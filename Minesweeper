@@ -1,5 +1,6 @@
-import random
 import re
+import random
+
 
 class Board:
     def __init__(self, dim_size, num_bombs):
@@ -15,16 +16,16 @@ class Board:
         bombs_planted = 0
 
         while bombs_planted < self.num_bombs:
-            loc = random.randint(0, self.dim_size**2 - 1)
+            loc = random.randint(0, self.dim_size ** 2 - 1)
             row = loc // self.dim_size
-            col = loc %  self.dim_size
+            col = loc % self.dim_size
 
             if board[row][col] == '*':
                 continue
 
             board[row][col] = '*'  # Place a bomb
             bombs_planted += 1  # Increment the bombs planted counter
-            
+
         return board
 
     def assign_values_to_board(self):
@@ -36,7 +37,7 @@ class Board:
                 self.board[r][c] = self.get_num_neighboring_bombs(r, c)
 
     def get_num_neighboring_bombs(self, row, col):
-        num_neighboring_bombs = 0 
+        num_neighboring_bombs = 0
 
         for r in range(max(0, row - 1), min(self.dim_size, row + 2)):
             for c in range(max(0, col - 1), min(self.dim_size, col + 2)):
@@ -45,7 +46,7 @@ class Board:
 
                 if self.board[r][c] == '*':
                     num_neighboring_bombs += 1
-            
+
         return num_neighboring_bombs
 
     def dig(self, row, col):
@@ -69,7 +70,7 @@ class Board:
         return True
 
     def __str__(self):
-        visible_board =[[' ' for _ in range(self.dim_size)] for _ in range(self.dim_size)]
+        visible_board = [[' ' for _ in range(self.dim_size)] for _ in range(self.dim_size)]
 
         for row in range(self.dim_size):
             for col in range(self.dim_size):
@@ -112,6 +113,7 @@ class Board:
 
         return string_rep
 
+
 def play():
     try:
         dim_size = int(input("Enter the dimension size of the board: "))
@@ -130,18 +132,18 @@ def play():
             user_input = re.split(',(\\s)*', input("Where would you like to dig? Input as row, col: "))
             row, col = int(user_input[0]), int(user_input[-1])
         except (ValueError, IndexError):
-            print("Invalid input. Please enter row and column separated by a comma.")
+            print("Please enter row and column separated by a comma.")
             continue
 
         if row < 0 or row >= board.dim_size or col < 0 or col >= dim_size:
-            print("Invalid location. Try again!")
+            print("Invalid point. Try again!")
             continue
 
         safe = board.dig(row, col)
 
         if safe:
             bombs_left = num_bombs - len(board.dug.intersection(board.dug))
-            print(f"You have {bombs_left} bombs left to win!")
+            print(f"You have {bombs_left} bombs left for victory")
         else:
             print("Sorry Game Over :(")
             # Reveal all bombs
@@ -153,7 +155,8 @@ def play():
             break
 
     if safe:
-        print("Congratulations!!! You are victorious!")
+        print("Congratulations!!! You won!")
 
-if __name__ == "__main__":
-    play()
+
+
+play() 
