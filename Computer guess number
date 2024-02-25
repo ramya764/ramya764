@@ -2,8 +2,8 @@ import random
 from colorama import Fore
 
 # generating magic number
-magic_number = 35
-chances = 5
+magic_number = 76
+chances = 89
 
 while chances > 0:
     computer_guess = random.randint(1,100)
